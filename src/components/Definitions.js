@@ -6,13 +6,15 @@ const Definitions = ({ word, category, meanings }) => {
     <div className="meanings">
       {meanings[0] && word && category === "en" && (
         <audio
+          style={{ backgroundColor: "#fff", borderRadius: 10 }}
           src={meanings[0].phonetics[0] && meanings[0].phonetics[0].audio}
-          style={{ backgroundColor: "white", borderRadius: 10 }}
           controls
         >
           Your browser doesn't support audio element
         </audio>
       )}
+
+
       {word === "" ? (
         <span className="subTitle">Start by typing a word in Search</span>
       ) : (
@@ -29,6 +31,11 @@ const Definitions = ({ word, category, meanings }) => {
                   <span>
                     <b>Example : </b>
                     {def.example}
+                  </span>
+                )}
+                {def.synonyms && (
+                  <span>
+                    <b>Synonyms :</b> {def.synonyms.map((s) => `${s}, `)}
                   </span>
                 )}
               </div>

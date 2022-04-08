@@ -20,8 +20,6 @@ function App() {
     }
   };
 
-  console.log("Hello ===> " + JSON.stringify(meanings));
-
   useEffect(() => {
     dictionaryApi();
   }, [word, category]);
@@ -40,6 +38,7 @@ function App() {
           setCategory={setCategory}
           word={word}
           setWord={setWord}
+          setMeanings={setMeanings}
         />
         {meanings && (
           <Definitions word={word} meanings={meanings} category={category} />
